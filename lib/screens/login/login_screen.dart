@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:betmaster/Screens/login/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 346.0, // Ajuste a posição conforme necessário
+              top: 346.0,
               left: 24,
               right: 24,
               child: Center(
@@ -35,4 +35,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-

@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // Defina a SplashScreen como tela inicial
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

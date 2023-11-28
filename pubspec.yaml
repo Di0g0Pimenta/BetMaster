@@ -1,6 +1,6 @@
 name: betmaster
 description: A new Flutter project.
-publish_to: 'none' # Remova esta linha se quiser publicar no pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
