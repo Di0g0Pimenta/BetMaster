@@ -8,7 +8,7 @@ class NavigationBarGames extends StatefulWidget {
 }
 
 class _CustomNavigationBarState extends State<NavigationBarGames> {
-  int _selectedIndex = 0; // Índice do botão selecionado
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class _CustomNavigationBarState extends State<NavigationBarGames> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildNavigationButton(0, "https://via.placeholder.com/30x30"),
-          _buildNavigationButton(1, "https://via.placeholder.com/35x35"),
-          _buildNavigationButton(2, "https://via.placeholder.com/32x32"),
+          _buildNavigationButton(0, "assets/logos/cs.png"),
+          _buildNavigationButton(1, "assets/logos/lol.png"),
+          _buildNavigationButton(2, "assets/logos/dota.png"),
         ],
       ),
     );
@@ -65,7 +65,7 @@ class _CustomNavigationBarState extends State<NavigationBarGames> {
               height: _selectedIndex == index ? 35 : 30,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl),
+                  image: AssetImage(imageUrl),
                   fit: BoxFit.fill,
                 ),
               ),

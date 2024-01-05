@@ -24,6 +24,9 @@ flutter:
   assets:
     
     - assets/logos/BetMaster_Logo_Color.png
+    - assets/logos/cs.png
+    - assets/logos/lol.png
+    - assets/logos/dota.png
     
     - assets/fonts/argentum-sans.black-italic.ttf
     - assets/fonts/argentum-sans.black.ttf

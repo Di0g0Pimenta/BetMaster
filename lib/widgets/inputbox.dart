@@ -36,7 +36,7 @@ class CustomInputBox extends StatelessWidget {
                 hintText: hintText,
                 hintStyle: const TextStyle(
                   color: Color(0xFFD0D0D0),
-                  fontSize: 24,
+                  fontSize: 16,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w100,
                 ),
