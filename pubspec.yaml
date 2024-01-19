@@ -1,0 +1,40 @@
+name: betmaster_2
+description: A new Flutter project.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.1.5 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/src/assets/logos/BetMaster_Logo_Color.png
+    - lib/src/assets/logos/cs.png
+    - lib/src/assets/logos/lol.png
+    - lib/src/assets/logos/dota.png
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: lib/src/assets/fonts/Roboto-Black.ttf
+        - asset: lib/src/assets/fonts/Roboto-BlackItalic.ttf
+        - asset: lib/src/assets/fonts/Roboto-Bold.ttf
+        - asset: lib/src/assets/fonts/Roboto-BoldItalic.ttf
+        - asset: lib/src/assets/fonts/Roboto-Italic.ttf
+        - asset: lib/src/assets/fonts/Roboto-Light.ttf
+        - asset: lib/src/assets/fonts/Roboto-LightItalic.ttf
+        - asset: lib/src/assets/fonts/Roboto-Medium.ttf
+        - asset: lib/src/assets/fonts/Roboto-MediumItalic.ttf
+        - asset: lib/src/assets/fonts/Roboto-Regular.ttf
+        - asset: lib/src/assets/fonts/Roboto-Thin.ttf
+        - asset: lib/src/assets/fonts/Roboto-ThinItalic.ttf
