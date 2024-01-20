@@ -3,6 +3,7 @@ import '../widgets/button.dart';
 import '../widgets/inputBox.dart';
 import '../widgets/singup.dart';
 import '../screens/register_screen.dart';
+import '../screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -22,11 +23,11 @@ class LoginScreen extends StatelessWidget {
               children: [
                 // Adicione a imagem do logo aqui
                 Positioned(
-                  top: 100, // Ajuste conforme necessário
+                  top: 100,
                   child: Image.asset(
-                    'lib/src/assets/logos/BetMaster_Logo_Color.png', // Substitua pelo caminho real do seu logo
-                    width: 300, // Ajuste conforme necessário
-                    height: 100, // Ajuste conforme necessário
+                    'lib/src/assets/logos/BetMaster_Logo_Color.png',
+                    width: 300,
+                    height: 100,
                   ),
                 ),
                 Positioned(
@@ -45,7 +46,11 @@ class LoginScreen extends StatelessWidget {
                         buttonText: 'Login',
                         onPressed: () {
                           // Lógica de login aqui
-                          print('Botão Entrar pressionado!');
+                          // Navegar para a tela HomeScreen após o login
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
+                          );
                         },
                       ),
                       const SizedBox(height: 10),
