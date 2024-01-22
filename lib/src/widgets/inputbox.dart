@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class CustomInputWidget extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
+  final bool isPassword; // Add this property
 
-  const CustomInputWidget(
-      {Key? key, required this.hintText, required this.controller})
+  const CustomInputWidget({Key? key, required this.hintText, required this.controller, this.isPassword = false})
       : super(key: key);
 
   @override
@@ -33,6 +33,7 @@ class _CustomInputWidgetState extends State<CustomInputWidget> {
           Expanded(
             child: TextField(
               controller: widget.controller,
+              obscureText: widget.isPassword, // Use the isPassword property here
               style: const TextStyle(
                 color: Color(0xFFD0D0D0),
                 fontSize: 24,
