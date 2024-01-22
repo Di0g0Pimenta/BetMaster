@@ -95,20 +95,21 @@ class _LoginScreenState extends State<LoginScreen> {
           CustomButton(
             buttonText: 'Login',
             onPressed: () async {
-              // Chama o método de login da API
               final Map<String, dynamic> result = await _apiService.login(
                 _emailController.text,
                 _passwordController.text,
               );
 
               if (result['success']) {
-                // Se o login for bem-sucedido, navega para a tela HomeScreen
+                // Use the authentication token for further API requests
+                print('Authentication Token: ${_apiService.authToken}');
+
+                // Navigate to the HomeScreen or perform other actions
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               } else {
-                // Se o login falhar, exibe a mensagem de erro
                 setState(() {
                   _errorMessage = result['error'];
                 });

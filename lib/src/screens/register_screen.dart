@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import '../widgets/button.dart';
 import '../widgets/inputBox.dart';
+import '../services/api.service.dart';
+import '../screens/login_screen.dart'; // Importe a tela de login ou a tela que você deseja exibir após o registro bem-sucedido
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
+  @override
+  _RegisterScreenState createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  final ApiService apiService = ApiService();
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,34 +32,52 @@ class RegisterScreen extends StatelessWidget {
             return Stack(
               alignment: Alignment.center,
               children: [
-                // Adiciona o logotipo aqui
                 Positioned(
-                  top: availableHeight * 0.15, // Ajuste a posição conforme necessário
+                  top: availableHeight * 0.15,
                   child: Image.asset(
                     'lib/src/assets/logos/BetMaster_Logo_Color.png',
-                    width: 300, // Ajuste a largura conforme necessário
-                    height: 100, // Ajuste a altura conforme necessário
+                    width: 300,
+                    height: 100,
                   ),
                 ),
                 Positioned(
                   top: inputBoxTop1,
-                  child: _buildTextField('Nome', 'Enter your name'),
+                  child: _buildTextField('Nome', 'Enter your name', nameController),
                 ),
                 Positioned(
                   top: inputBoxTop2,
-                  child: _buildTextField('Email', 'Enter your email'),
+                  child: _buildTextField('Email', 'Enter your email', emailController),
                 ),
                 Positioned(
                   top: inputBoxTop3,
-                  child: _buildTextField('Password', 'Enter your password'),
+                  child: _buildTextField('Password', 'Enter your password', passwordController),
                 ),
                 Positioned(
                   top: buttonTop,
                   child: CustomButton(
                     buttonText: 'Register',
-                    onPressed: () {
-                      // Lógica de submit aqui
-                      print('Botão Submit pressionado!');
+                    onPressed: () async {
+                      // Obtenha os valores dos campos de entrada
+                      String username = nameController.text;
+                      String email = emailController.text;
+                      String password = passwordController.text;
+
+                      // Adicione aqui validações apropriadas antes de chamar o método de registro
+
+                      // Chame o método de registro do ApiService
+                      final result = await apiService.register(username, email, password);
+
+                      if (result['success']) {
+                        print('Registro bem-sucedido!');
+                        
+                        // Redirecione para a tela de login
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      } else {
+                        print('Falha no registro: ${result['error']}');
+                      }
                     },
                   ),
                 ),
@@ -58,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String label, String hintText) {
+  Widget _buildTextField(String label, String hintText, TextEditingController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -77,7 +108,7 @@ class RegisterScreen extends StatelessWidget {
         const SizedBox(height: 17),
         CustomInputWidget(
           hintText: hintText,
-          controller: TextEditingController(),
+          controller: controller,
         ),
       ],
     );
