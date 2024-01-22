@@ -52,8 +52,8 @@ class _NavigationBarGamesState extends State<NavigationBarGames> {
             },
             children: [
               Container(color: const Color(0xFF444A73), child: const Center(child: Text("CS"))),
-              Container(color: const Color(0xFF444A73), child: const Center(child: Text("LOL"))),
-              Container(color: const Color(0xFF444A73), child: const Center(child: Text("DOTA"))),
+              Container(color: const Color(0xFF444A73), child: const Center(child: Text("LoL"))),
+              Container(color: const Color(0xFF444A73), child: const Center(child: Text("Dota"))),
             ],
           ),
         ),

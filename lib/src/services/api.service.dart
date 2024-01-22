@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../widgets/navbargames.dart';
 
 class ApiService {
   static const String baseUrl = 'https://betmaster-api.onrender.com';
@@ -58,6 +59,28 @@ class ApiService {
     } else {
       print('Error: ${response.statusCode} - ${response.body}');
       return {'success': false, 'error': 'Registration failed'};
+    }
+  }
+
+  Future<Map<String, dynamic>> getUserDetails() async {
+    final String apiUrl = '$baseUrl/api/users/profile';
+
+    final http.Response response = await http.get(
+      Uri.parse(apiUrl),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $authToken', // Inclua o token de autenticação nos headers
+      },
+    );
+
+    print('Response User Details: ${response.body}'); // Adicione esta linha
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> responseData = jsonDecode(response.body);
+      return {'success': true, 'data': responseData};
+    } else {
+      print('Error fetching user details: ${response.statusCode} - ${response.body}');
+      return {'success': false, 'error': 'Failed to fetch user details'};
     }
   }
 }
